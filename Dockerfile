@@ -14,6 +14,8 @@ RUN apt-get install -y --force-yes libblas-dev liblapack-dev gfortran libfreetyp
 RUN add-apt-repository ppa:ubuntugis/ppa
 RUN apt-get update
 RUN apt-get install libgdal1h gdal-bin libgdal-dev
+ENV CPLUS_INCLUDE_PATH=/usr/include/gdal
+ENV C_INCLUDE_PATH=/usr/include/gdal
 
 
 #Create the folder where app lives

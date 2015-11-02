@@ -1,0 +1,18 @@
+## Enable Docker 
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker info
+    - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+    - docker build -t huevosabio/$CIRCLE_PROJECT_REPONAME:$CIRCLE_BRANCH .
+
+#Push to Docker Hub
+deployment:
+  hub:
+    branch: [master, develop, qa, stage]
+    commands:
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push huevosabio/$CIRCLE_PROJECT_REPONAME:$CIRCLE_BRANCH
