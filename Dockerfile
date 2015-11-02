@@ -21,10 +21,10 @@ ENV C_INCLUDE_PATH=/usr/include/gdal
 #Create the folder where app lives
 #Assumes the entirety of my app is there
 RUN mkdir /var/www
-RUN mkdir /var/www/fineng-base
+RUN mkdir /var/www/geopy
 RUN pip install numpy==1.10.1
-ADD ./requirements.txt /var/www/fineng-base/requirements.txt
-RUN pip install -r /var/www/fineng-base/requirements.txt
+ADD ./requirements.txt /var/www/geopy/requirements.txt
+RUN pip install -r /var/www/geopy/requirements.txt
 
 #install Supervisor
 RUN apt-get install -y --force-yes supervisor
