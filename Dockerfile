@@ -11,6 +11,7 @@ RUN pip install virtualenv
 RUN apt-get install -y --force-yes libblas-dev liblapack-dev gfortran libfreetype6-dev libpng-dev python-dev libxft-dev libpq-dev
 
 #Geo stuff
+RUN apt-get install --reinstall python-software-properties && sudo dpkg-reconfigure python-software-properties
 RUN add-apt-repository ppa:ubuntugis/ppa
 RUN apt-get update
 RUN apt-get install libgdal1h gdal-bin libgdal-dev
