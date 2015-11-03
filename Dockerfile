@@ -23,6 +23,7 @@ ENV C_INCLUDE_PATH=/usr/include/gdal
 RUN mkdir /var/www
 RUN mkdir /var/www/geopy
 RUN pip install numpy==1.10.1
+RUN pip install scipy==0.16.1
 ADD ./requirements.txt /var/www/geopy/requirements.txt
 RUN pip install -r /var/www/geopy/requirements.txt
 
